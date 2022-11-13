@@ -1,6 +1,6 @@
 import { login } from './login';
 
-class LsMock {
+export class LsMock {
   constructor() {
     this.store = {};
   }
@@ -27,7 +27,7 @@ global.localStorage = new LsMock();
 const TEST_USERNAME = 'test_bombadil';
 const TEST_EMAIL = 'bombadil_test@noroff.no';
 const TEST_PW = '12345678';
-const TEST_TOKEN = 'token123';
+export const TEST_TOKEN = 'token123';
 const TEST_RESPONSE = {
   name: TEST_USERNAME,
   email: TEST_EMAIL,
