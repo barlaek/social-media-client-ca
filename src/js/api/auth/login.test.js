@@ -57,11 +57,11 @@ describe('login', () => {
     const item = await login(TEST_EMAIL, TEST_PW);
     global.localStorage.setItem('token', TEST_TOKEN);
     expect(item).toEqual(TEST_RESPONSE);
-    expect(item).toEqual(global.localStorage.getItem('token'));
+    expect(item.token).toEqual(global.localStorage.getItem('token'));
   });
 
-  //   it('Throws a new error message at bad requests', async () => {
-  //     global.fetch = jest.fn(() => fetchFailure());
-  //     await expect(login(TEST_EMAIL, TEST_PW)).rejects.toThrow('Unauthorized');
-  //   });
+  it('Throws a new error message at bad requests', async () => {
+    global.fetch = jest.fn(() => fetchFailure());
+    await expect(login(TEST_EMAIL, TEST_PW)).rejects.toThrow('Unauthorized');
+  });
 });
