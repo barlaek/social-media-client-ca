@@ -1,4 +1,3 @@
-// import { remove } from '../../storage';
 import { logout } from './logout';
 import { LsMock, TEST_TOKEN } from './login.test';
 
