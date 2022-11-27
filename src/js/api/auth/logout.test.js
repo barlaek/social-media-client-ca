@@ -1,14 +1,15 @@
-import { load, remove, save } from '../../storage/index';
+import { save } from '../../storage/index';
 import { logout } from './logout';
-import { LsMock, TEST_TOKEN } from './login.test';
+import { LsMock } from './login.test';
 
 global.localStorage = new LsMock();
 
 describe('logout', () => {
   it('Removes the valid user token on logout', () => {
-    localStorage.setItem('token', JSON.stringify(TEST_TOKEN));
+    save('token', { profile: 'profile' });
+    expect(localStorage.getItem('token')).toEqual('{"profile":"profile"}');
     logout();
-    expect(localStorage.getItem('token').toEqual(undefined));
+    expect(localStorage.getItem('token')).toEqual(null);
   });
 });
 
